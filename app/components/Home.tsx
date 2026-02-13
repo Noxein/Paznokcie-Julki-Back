@@ -72,10 +72,11 @@ function Home() {
     setImages(imagesCopy)
   }
   
-  const handleSaveChanges = () => {
+  const handleSaveChanges = async () => {
     console.log("Zapisywanie zmian:", images)
     // Tutaj możesz dodać logikę zapisywania zmian, np. wysyłając zaktualizowane dane do backendu.
-    updateImagesInfo(images)
+    await updateImagesInfo(images)
+    setSelectedImageType(null)
   }
 
   const handleToggleFrontPage = (imageid: string) => {
