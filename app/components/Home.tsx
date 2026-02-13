@@ -50,9 +50,11 @@ function Home() {
     }
   }
 
-   const handleDeleteImages = () => {
-    console.log("Usuwanie obrazów:", selectedImages)
-    deleteImages(selectedImages.map(img => img.public_id))
+   const handleDeleteImages = async() => {
+    await deleteImages(selectedImages.map(img => img.public_id))
+    setImages(prev => prev.filter(img => !selectedImages.some(sel => sel.id === img.id)))
+    setSelectedImages([])
+    setSelectedImageType(null)
    }
 
   const handleToggleTags = (imageid: string, type: TagType) => {
