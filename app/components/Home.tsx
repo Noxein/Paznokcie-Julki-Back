@@ -75,6 +75,21 @@ function Home() {
     // Tutaj możesz dodać logikę zapisywania zmian, np. wysyłając zaktualizowane dane do backendu.
     updateImagesInfo(images)
   }
+
+  const handleToggleFrontPage = (imageid: string) => {
+    let imagesCopy = [...images]
+    const imageIndex = imagesCopy.findIndex(img => img.id === imageid)
+    imagesCopy[imageIndex].info.should_be_on_front_page = !imagesCopy[imageIndex].info.should_be_on_front_page
+    setImages(imagesCopy)
+  }
+
+  const handleChangeImportance = (imageid: string, value: string) => {
+    let imagesCopy = [...images]
+    const imageIndex = imagesCopy.findIndex(img => img.id === imageid)
+    imagesCopy[imageIndex].info.importance = parseInt(value) || 0
+    setImages(imagesCopy)
+  }
+  
   return (
     <div className="flex flex-col min-h-screen items-center bg-zinc-50 font-sans dark:bg-black justify-start pt-10 px-5">
 
@@ -127,7 +142,7 @@ function Home() {
             </div>}
 
             {selectedImageType === 'edit' && 
-            <div className="grid grid-cols-2 grid-rows-2 absolute z-10 bg-black opacity-80 w-full h-full items-center justify-center text-white text-xl">
+            <div className="grid-rows-2 gap-4 absolute z-10 bg-black opacity-80 w-full h-full items-center justify-center text-white text-xl">
                 <div>
                   {TypyPaznokci.map((type) => (
                     <div key={type} className="flex items-center gap-2">
@@ -137,7 +152,16 @@ function Home() {
                     </div>
                   ))}
                 </div>
-                <div>
+                <div className="mt-4">
+                  
+                  <input id={`frontPage-${image.id}`} type="checkbox" checked={image.info.should_be_on_front_page} onChange={() => handleToggleFrontPage(image.id)} />
+                  <label htmlFor={`frontPage-${image.id}`}>Strona główna</label>
+                  
+                </div>
+
+                <div className="mt-4">
+                  <label htmlFor={`importance-${image.id}`}>Ważność</label>
+                  <input id={`importance-${image.id}`} type="number" className="border rounded pl-1" value={image.info.importance} onChange={(e) => handleChangeImportance(image.id, e.target.value)} />
 
                 </div>
             </div>}
