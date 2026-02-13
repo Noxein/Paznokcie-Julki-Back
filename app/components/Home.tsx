@@ -176,13 +176,13 @@ function Home() {
         <div className="fixed bottom-5 w-full px-5 z-20">
           {selectedImageType === "delete" && 
           <div className="flex gap-4 flex-row">
-            <Button text="Anuluj" isPrimary className="  border-red-500 border-2 flex-1" onClick={()=>setSelectedImageType(null)} />
+            <Button text="Anuluj" isPrimary className="  border-red-500 bg-black/50 border-2 flex-1" onClick={()=>setSelectedImageType(null)} />
             <Button text="Usuń zaznaczone" className="bg-red-500 hover:bg-red-600 flex-1" onClick={handleDeleteImages} />
           </div>}
 
           {selectedImageType === "edit" && 
           <div className="flex gap-4 flex-row">
-            <Button text="Anuluj" isPrimary className="border-green-500 border-2 flex-1" onClick={()=>setSelectedImageType(null)} />
+            <Button text="Anuluj" isPrimary className="border-green-500 bg-black/50 border-2 flex-1" onClick={()=>setSelectedImageType(null)} />
             <Button text="Zapisz zmiany" className="bg-green-500 hover:bg-green-600 flex-1" onClick={handleSaveChanges} />
           </div>}
         </div>
