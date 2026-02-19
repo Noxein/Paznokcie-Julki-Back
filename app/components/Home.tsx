@@ -164,7 +164,7 @@ function Home() {
 
                 <div className="mt-4">
                   <label htmlFor={`importance-${image.id}`}>Ważność</label>
-                  <input id={`importance-${image.id}`} type="number" className="border rounded pl-1" value={image.info.importance} onChange={(e) => handleChangeImportance(image.id, e.target.value)} />
+                  <input id={`importance-${image.id}`} type="number" className="border rounded pl-1 max-w-full px-2" value={image.info.importance} onChange={(e) => handleChangeImportance(image.id, e.target.value)} />
 
                 </div>
             </div>}

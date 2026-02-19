@@ -12,8 +12,8 @@ export default function handler(req: NextRequest) {
     // here compare jwt
     const jwtCookie = cookies.split(';').find(cookie => cookie.trim().startsWith('jwt='));
     const pathName = req.nextUrl.pathname
+    console.log("Requested path:", pathName)
 
-    console.log(pathName)
     const HomeWithJWT = protectedRoutes.includes(pathName) && jwtCookie 
     const LoginWithJWT = pathName === '/login' && jwtCookie
 
@@ -53,4 +53,4 @@ export const config = {
   ],
 }
 
-const protectedRoutes = ['/home', '/api/sign-cloudinary-params', '/'];
+const protectedRoutes = ['/home','/home/', '/home/cennik', '/api/sign-cloudinary-params', '/'];

@@ -12,4 +12,11 @@ export type InfoType = {
     date: Date
 }
 
-export type TagType = "manicure" | "pedicure" | "hybryda" | "zabieg"
+export type TagType = 'wszystkie' | "manicure" | "pedicure" | "hybryda" | "żel" | "przedłużanie" | "french" | "babyboomer";
+
+export type Price = {
+    id: string;
+    name: string;
+    price: number;
+    description: string;
+}

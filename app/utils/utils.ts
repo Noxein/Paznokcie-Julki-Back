@@ -1,1 +1,1 @@
-export const TypyPaznokci = ["manicure", "pedicure", "hybryda", "zabieg"] as const;
+export const TypyPaznokci = ['wszystkie',"manicure", "pedicure", "hybryda","żel","przedłużanie" ,"french", "babyboomer"] as const;
